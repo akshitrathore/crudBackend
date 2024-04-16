@@ -3,7 +3,7 @@ package com.crud.CRUD1.repo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.util.Optional;
+//import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +22,13 @@ public class UserRepositoryTest {
     public void testFindByEmail() {
         // Given
         User user = new User();
-        user.setFirstName("John");
-        user.setLastName("Doe");
-        user.setEmailId("john.doe@example.com");
+        user.setFirstName("Akshit");
+        user.setLastName("Rathore");
+        user.setEmailId("ar@bigbasket.com");
         userRepository.save(user);
 
         // When
-        User foundUser = userRepository.findByEmail("john.doe@example.com");
+        User foundUser = userRepository.findByEmail("ar@bigbasket.com");
 
         // Then
         assertNotNull(foundUser);
