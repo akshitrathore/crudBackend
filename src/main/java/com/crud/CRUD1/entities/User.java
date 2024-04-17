@@ -2,6 +2,7 @@ package com.crud.CRUD1.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,14 +18,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="users")
+@Table(name="users" , schema ="newdb")
 public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonProperty("id")
+	@Column
     private int id;
+	@Column
     private String firstname;
+	@Column
     private String lastname;
+	@Column
     private String emailId;
     
     public User(){

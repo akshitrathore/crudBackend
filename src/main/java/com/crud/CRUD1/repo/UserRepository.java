@@ -9,7 +9,7 @@ import com.crud.CRUD1.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    // You can add custom queries here if needed
-	@Query(value = "SELECT * FROM user WHERE email_Id = ?1", nativeQuery = true)
+    
+	@Query(value = "SELECT * FROM users WHERE email_Id = ?1", nativeQuery = true)
 	User findByEmail(@Param("emailId") String emailId);
 }

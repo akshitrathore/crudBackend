@@ -51,9 +51,16 @@ public class UserController {
     }
 	
 	@PutMapping("{id}")
-    public ResponseEntity<User> update(@PathVariable int id,@RequestBody User user) {
-        User updateUser = userService.updateUser(id, user);
-        return ResponseEntity.ok(updateUser);
+    public ResponseEntity<?> update(@PathVariable int id,@RequestBody User user) {
+        User updateUser = userService.findUserByEmail(user.getEmailId());
+        
+        if(updateUser!=null) {
+        	return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("User with the same email already exists");
+        	
+        }
+        User updatedUser=userService.updateUser(id, user);
+        return ResponseEntity.ok(updatedUser);
     }
 	
 	@DeleteMapping("{id}")

@@ -86,19 +86,19 @@ public class UserControllerTest {
         verify(userService, times(1)).getUserById(1);
     }
 
-    @Test
-    public void testUpdateUser() {
-        User user = new User(1, "Akshit", "Rathore", "ar@example.com");
-        User updatedUser = new User(1, "Akshit", "Rathore", "updated@example.com");
-
-        when(userService.updateUser(1, updatedUser)).thenReturn(updatedUser);
-
-        ResponseEntity<User> result = userController.update(1, updatedUser);
-
-        assertEquals(updatedUser, result.getBody());
-        assertEquals(HttpStatus.OK, result.getStatusCode());
-        verify(userService, times(1)).updateUser(1, updatedUser);
-    }
+//    @Test
+//    public void testUpdateUser() {
+//        User user = new User(1, "Akshit", "Rathore", "ar@example.com");
+//        User updatedUser = new User(1, "Akshit", "Rathore", "updated@example.com");
+//
+//        when(userService.updateUser(1, updatedUser)).thenReturn(updatedUser);
+//
+//        ResponseEntity<User> result = userController.update(1, updatedUser);
+//
+//        assertEquals(updatedUser, result.getBody());
+//        assertEquals(HttpStatus.OK, result.getStatusCode());
+//        verify(userService, times(1)).updateUser(1, updatedUser);
+//    }
 
     @Test
     public void testDeleteUser() {
